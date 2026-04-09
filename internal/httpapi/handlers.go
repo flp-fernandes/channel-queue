@@ -20,7 +20,7 @@ func NewHandler(q *queue.EventQueue) *Handler {
 }
 
 type productViewRequest struct {
-	ProductID int64 `json:"product_id"`
+	ProductID string `json:"product_id"`
 }
 
 func (h *Handler) HealthCheck(w http.ResponseWriter, r *http.Request) {
@@ -39,7 +39,7 @@ func (h *Handler) CreateProductView(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if req.ProductID == 0 {
+	if req.ProductID == "" {
 		http.Error(w, "product_id is required", http.StatusBadRequest)
 		return
 	}

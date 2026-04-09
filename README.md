@@ -199,6 +199,31 @@ Para ajustar a carga, edite `scripts/load_test.js`:
 
 ---
 
+## Banco de dados
+
+### Acessar via linha de comando
+
+```bash
+docker compose exec postgres psql -U postgres -d productviews
+```
+
+### Consultas úteis
+
+```sql
+-- últimos registros
+SELECT * FROM product_views ORDER BY id DESC LIMIT 20;
+
+-- contar total de registros
+SELECT COUNT(*) FROM product_views;
+
+-- apagar todos os registros
+TRUNCATE TABLE product_views;
+```
+
+Para sair do psql: `\q`
+
+---
+
 ## Licença
 
 MIT License — utilize e modifique livremente.

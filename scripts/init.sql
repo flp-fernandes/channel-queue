@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS product_views (
     id         BIGSERIAL PRIMARY KEY,
-    product_id BIGINT    NOT NULL,
+    product_id UUID      NOT NULL,
     viewed_at  TIMESTAMPTZ NOT NULL
 );
 
